@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import Alumno from './Alumno';
-import { ScrollView } from 'react-native-web';
+
 export default function App() {
-  const alumnos=[
-  { matricula: '2114354', nombre: 'CANDELARIA MORA SAMANTHA' },
+  const alumnos = [
+    { matricula: '2114354', nombre: 'CANDELARIA MORA SAMANTHA' },
    { matricula: '2121179', nombre: 'AGUILAR ORTIZ LUIS ROLANDO' },
    { matricula: '2048051', nombre: 'BARRIENTOS GALLEGOS DIEGO' },
    { matricula: '1979822', nombre: 'CANO MONTIEL KELLY YISSETH' },
@@ -41,14 +41,12 @@ export default function App() {
    { matricula: '1857791', nombre: 'ZACATENCO OLIVE RODRIGO' },
    { matricula: '2025218', nombre: 'ZAVALA CANTU TERESA MARGARITA' },
   ];
-  for(const alumno in alumnos){
-        <Alumno> nombre=alumno.nombre matricula=alumno.matricula</Alumno>
-      }
+
   return (
-      <View style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>Lista de Alumnos</Text>
 
-      <View style={styles.wrapper}>
+      <ScrollView style={styles.wrapper}>
         {alumnos.map((alumno) => (
           <Alumno
             key={alumno.matricula}
@@ -56,7 +54,9 @@ export default function App() {
             matricula={alumno.matricula}
           />
         ))}
-      </View>
+      </ScrollView>
+
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -65,35 +65,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#cfe9f7",
   },
-
   title: {
     fontSize: 22,
     fontWeight: "bold",
     marginBottom: 15,
+    color: "#00334d",
   },
-
   wrapper: {
     borderWidth: 2,
-    borderColor: "#333",
+    borderColor: "#3399cc",
     padding: 15,
     borderRadius: 8,
-    backgroundColor: "#ffffff",
-  },
-
-  card: {
-    borderWidth: 1,
-    borderColor: "#666",
-    padding: 15,
-    marginBottom: 10,
-    borderRadius: 6,
-    backgroundColor: "#fafafa",
-  },
-
-  name: {
-    fontWeight: "bold",
-    fontSize: 16,
+    backgroundColor: "#e6f5fb",
   },
 });
-
